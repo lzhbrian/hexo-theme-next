@@ -12,18 +12,19 @@
 
       {% set display_toc = is_post and theme.toc.enable %}
 
-      {% if display_toc and toc(page.content).length > 1 %}
+      {% if toc(page.content).length > 1 %}
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            {{ __('sidebar.toc') }}
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview sidebar-nav-active" data-target="site-overview">
             {{ __('sidebar.overview') }}
+          </li>
+          <li class="sidebar-nav-toc" data-target="post-toc-wrap" >
+            {{ __('sidebar.toc') }}
           </li>
         </ul>
       {% endif %}
 
-      <section class="site-overview sidebar-panel{% if not display_toc or toc(page.content).length <= 1 %} sidebar-panel-active{% endif %}">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <br/><br/>
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}"
@@ -35,7 +36,7 @@
               <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
           {% endif %}
         </div>
-        <nav class="site-state motion-element">
+<!--         <nav class="site-state motion-element">
         
           {% if config.archive_dir != '/' %}
             <div class="site-state-item site-state-posts">
@@ -65,7 +66,6 @@
           {% endif %}
 
         </nav>
-
         {% if theme.rss %}
           <div class="feed-link motion-element">
             <a href="{{ url_for(theme.rss) }}" rel="alternate">
@@ -73,8 +73,7 @@
               RSS
             </a>
           </div>
-        {% endif %}
-
+        {% endif %} -->
         <div class="links-of-author motion-element">
           {% if theme.social %}
             {% for name, link in theme.social %}
@@ -120,9 +119,11 @@
 
       </section>
 
+<br/>
+
       {% if display_toc and toc(page.content).length > 1 %}
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <section class="post-toc-wrap motion-element sidebar-panel{% if not display_toc %} sidebar-panel-active{% endif %}">
           <div class="post-toc">
 
             {% if page.toc_number === undefined %}

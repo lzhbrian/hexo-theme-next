@@ -42,7 +42,7 @@
             {% if theme.menu_icons.enable %}
               <i class="menu-item-icon fa fa-fw fa-{{theme.menu_icons[itemName] | default('question-circle') | lower }}"></i> <br />
             {% endif %}
-            {{ __('menu.' + itemName) }}
+            {{ __(itemName) }}
           </a>
         </li>
       {% endfor %}

@@ -50,7 +50,7 @@
 {% endblock %}
 
 {% block sidebar %}
-  {{ sidebar_template.render(false) }}
+  {{ sidebar_template.render(true) }}
 {% endblock %}
 
 

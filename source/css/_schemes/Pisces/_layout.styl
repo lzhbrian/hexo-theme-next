@@ -60,7 +60,8 @@
 .content-wrap {
   float: right;
   box-sizing: border-box;
-  padding: $content-desktop-padding;
+  padding-left: $content-desktop-padding;
+  padding-right: $content-desktop-padding;
   width: $content-desktop;
   background: white;
   min-height: 700px;
@@ -69,12 +70,14 @@
 
   +tablet() {
     width: 100%;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: initial;
   }
   +mobile() {
     width: 100%;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     min-height: auto;
     border-radius: initial;
   }

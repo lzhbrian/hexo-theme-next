@@ -17,8 +17,8 @@ menu:
   sitemap: Sitemap
 
 sidebar:
-  overview: Overview
   toc: Table of Contents
+  overview: Overview
 
 post:
   created: Post created
